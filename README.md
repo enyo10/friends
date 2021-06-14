@@ -1,6 +1,7 @@
-# GroupChatApp
+# friends
 ## About
 Developed a Group chat application using Flutter and Firebase, where users can register and create groups or join already existing groups and start conversing with each other.
+This application is based on that of Ahmed Gulab Khan to whom I send my thanks. Features will be added, code modified as well as the design.
 
 ## Snapshots
 
@@ -15,7 +16,7 @@ Dark Mode is enabled or disabled based on whether the system's theme is dark or 
 1. Cloning the repository:
 
 ```
-$ git clone https://github.com/ahmedgulabkhan/GroupChatApp.git
+$ git clone https://github.com/friends/enyo10.git
 ```
 
 2. Open the project and install dependencies (using terminal):
@@ -31,3 +32,4 @@ This installs all the required dependencies like cloud_firestore, shared_prefere
 4. Now run the app on your connected device (using terminal):
 
 `$ flutter run`
+# friends

@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:group_chat_app/helper/helper_functions.dart';
-import 'package:group_chat_app/pages/chat_page.dart';
-import 'package:group_chat_app/services/database_service.dart';
+import 'package:friends/helper/helper_functions.dart';
+import 'package:friends/services/database_service.dart';
+
+import 'chat_page.dart';
+
 
 class SearchPage extends StatefulWidget {
   @override

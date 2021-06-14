@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "243283190111",
+    "project_id": "friends-d7c41",
+    "storage_bucket": "friends-d7c41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243283190111:android:49c5e3a62899d8ee1e16ea",
+        "android_client_info": {
+          "package_name": "ch.enyo.friends"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243283190111-cra4evad7ibtldgrqca4rsh5sb29cgu5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZTLxRlFnQd9IDNiU66w4yrzSm_tWisl4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243283190111-cra4evad7ibtldgrqca4rsh5sb29cgu5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

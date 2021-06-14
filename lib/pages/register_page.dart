@@ -1,10 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:group_chat_app/helper/helper_functions.dart';
-import 'package:group_chat_app/pages/home_page.dart';
-import 'package:group_chat_app/services/auth_service.dart';
-import 'package:group_chat_app/shared/constants.dart';
-import 'package:group_chat_app/shared/loading.dart';
+import 'package:friends/helper/helper_functions.dart';
+import 'package:friends/services/auth_service.dart';
+import 'package:friends/shared/constants.dart';
+import 'package:friends/shared/loading.dart';
+
+import 'home_page.dart';
+
 
 class RegisterPage extends StatefulWidget {
   final Function toggleView;

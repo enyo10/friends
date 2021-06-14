@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:group_chat_app/services/database_service.dart';
-import 'package:group_chat_app/widgets/message_tile.dart';
+import 'package:friends/services/database_service.dart';
+import 'package:friends/widgets/message_tile.dart';
+
 
 class ChatPage extends StatefulWidget {
 

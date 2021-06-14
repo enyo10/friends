@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">243283190111-cra4evad7ibtldgrqca4rsh5sb29cgu5.apps.googleusercontent.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">243283190111</string>
+    <string name="google_api_key" translatable="false">AIzaSyAZTLxRlFnQd9IDNiU66w4yrzSm_tWisl4</string>
+    <string name="google_app_id" translatable="false">1:243283190111:android:49c5e3a62899d8ee1e16ea</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAZTLxRlFnQd9IDNiU66w4yrzSm_tWisl4</string>
+    <string name="google_storage_bucket" translatable="false">friends-d7c41.appspot.com</string>
+    <string name="project_id" translatable="false">friends-d7c41</string>
+</resources>

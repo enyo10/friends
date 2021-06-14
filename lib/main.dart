@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:group_chat_app/helper/helper_functions.dart';
-import 'package:group_chat_app/pages/authenticate_page.dart';
-import 'package:group_chat_app/pages/home_page.dart';
+import 'package:friends/pages/authenticate_page.dart';
+import 'package:friends/pages/home_page.dart';
+
+import 'helper/helper_functions.dart';
 
 void main() => runApp(MyApp());
 

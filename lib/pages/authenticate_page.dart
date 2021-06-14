@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:group_chat_app/pages/register_page.dart';
-import 'package:group_chat_app/pages/signin_page.dart';
+import 'package:friends/pages/register_page.dart';
+import 'package:friends/pages/signin_page.dart';
 
 class AuthenticatePage extends StatefulWidget {
   @override
