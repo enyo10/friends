@@ -22,7 +22,7 @@ $ git clone https://github.com/friends/enyo10.git
 2. Open the project and install dependencies (using terminal):
 
 ```
-$ cd GroupChatApp
+$ cd friends
 $ flutter pub get
 ```
 This installs all the required dependencies like cloud_firestore, shared_preferences, flutter_spinkit etc...
