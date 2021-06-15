@@ -1,8 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:friends/services/database_service.dart';
 
-import 'message_tile.dart';
 
 class MessageSenderTile extends StatefulWidget {
   final String groupId;
@@ -17,34 +15,9 @@ class MessageSenderTile extends StatefulWidget {
 }
 
 class _MessageSenderTileState extends State<MessageSenderTile> {
-  Stream<QuerySnapshot> _chats;
+
   TextEditingController messageEditingController = new TextEditingController();
   bool hasMessage = false;
-
-  Widget _chatMessages() {
-    return StreamBuilder(
-      stream: _chats,
-      builder: (context, snapshot) {
-        return snapshot.hasData
-            ? ListView.builder(
-                itemCount: snapshot.data.documents.length,
-                itemBuilder: (context, index) {
-                  return MessageTile(
-                    message: snapshot.data.documents[index].data["message"],
-                    sender: snapshot.data.documents[index].data["sender"],
-                    sentByMe: widget.userName ==
-                        snapshot.data.documents[index].data["sender"],
-                  );
-                })
-            : Container();
-      },
-    );
-  }
-
-  _hasMessage() {
-    print(" in has message");
-    return messageEditingController.text.isNotEmpty;
-  }
 
   _sendMessage() {
     if (messageEditingController.text.isNotEmpty) {
@@ -65,12 +38,6 @@ class _MessageSenderTileState extends State<MessageSenderTile> {
   @override
   void initState() {
     super.initState();
-    DatabaseService().getChats(widget.groupId).then((val) {
-      // print(val);
-      setState(() {
-        _chats = val;
-      });
-    });
     messageEditingController.addListener(() {
       //here you have the changes of your textfield
       if (messageEditingController.text.isNotEmpty)
@@ -118,8 +85,15 @@ class _MessageSenderTileState extends State<MessageSenderTile> {
                     ),
                     SizedBox(width: 12.0),
                     Visibility(
-                      visible: hasMessage,
-                      child: GestureDetector(
+
+                     child: IconButton(onPressed: (){
+                       print(" attached clicked");
+                     },
+                       icon: Icon(Icons.attach_file, color: Colors.white,),
+                       iconSize: 40,
+                       
+                     ),
+                     /* child: GestureDetector(
                         onTap: () {
                           _sendMessage();
                         },
@@ -133,11 +107,14 @@ class _MessageSenderTileState extends State<MessageSenderTile> {
                               child:
                                   Icon(Icons.attach_file, color: Colors.white)),
                         ),
-                      ),
+                      ),*/
                     ),
                     Visibility(
+                      visible:! hasMessage,
                         child: IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              print(" on Camera clicked");
+                            },
                             color: Colors.white,
                             iconSize: 40,
                             icon: Icon(Icons.photo_camera)))
@@ -150,6 +127,7 @@ class _MessageSenderTileState extends State<MessageSenderTile> {
               child: GestureDetector(
                 onTap: () {
                   _sendMessage();
+                  print(" on message send");
                 },
                 child: Container(
                   height: 50.0,
