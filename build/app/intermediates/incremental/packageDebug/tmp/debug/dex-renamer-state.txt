@@ -1,4 +1,4 @@
-#Mon Jun 14 23:59:18 CEST 2021
+#Tue Jun 15 12:26:55 CEST 2021
 base.2=C\:\\dev\\flutterWorkplace\\friends\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes2.dex
 base.1=C\:\\dev\\flutterWorkplace\\friends\\build\\app\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
 base.0=C\:\\dev\\flutterWorkplace\\friends\\build\\app\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex

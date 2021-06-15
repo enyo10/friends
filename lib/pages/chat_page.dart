@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:friends/services/database_service.dart';
+import 'package:friends/widgets/message_sender_tile.dart';
 import 'package:friends/widgets/message_tile.dart';
 
 
@@ -85,8 +86,9 @@ class _ChatPageState extends State<ChatPage> {
         child: Stack(
           children: <Widget>[
             _chatMessages(),
+            MessageSenderTile()
             // Container(),
-            Container(
+            /*Container(
               alignment: Alignment.bottomCenter,
               width: MediaQuery.of(context).size.width,
               child: Container(
@@ -130,7 +132,7 @@ class _ChatPageState extends State<ChatPage> {
                   ],
                 ),
               ),
-            )
+            )*/
           ],
         ),
       ),
