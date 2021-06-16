@@ -19,7 +19,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // data
   final AuthService _auth = AuthService();
-  FirebaseUser _user;
+  User _user;
   String _groupName;
   String _userName = '';
   String _email = '';
@@ -88,7 +88,7 @@ class _HomePageState extends State<HomePage> {
 
   // functions
   _getUserAuthAndJoinedGroups() async {
-    _user = await FirebaseAuth.instance.currentUser();
+    _user = FirebaseAuth.instance.currentUser;
     await HelperFunctions.getUserNameSharedPreference().then((value) {
       setState(() {
         _userName = value;

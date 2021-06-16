@@ -8,12 +8,12 @@ class DatabaseService {
   });
 
   // Collection reference
-  final CollectionReference userCollection = Firestore.instance.collection('users');
-  final CollectionReference groupCollection = Firestore.instance.collection('groups');
+  final CollectionReference userCollection = FirebaseFirestore.instance.collection('users');
+  final CollectionReference groupCollection = FirebaseFirestore.instance.collection('groups');
 
   // update userdata
   Future updateUserData(String fullName, String email, String password) async {
-    return await userCollection.document(uid).setData({
+    return await userCollection.doc(uid).set({
       'fullName': fullName,
       'email': email,
       'password': password,
@@ -36,14 +36,14 @@ class DatabaseService {
       'recentMessageSender': ''
     });
 
-    await groupDocRef.updateData({
+    await groupDocRef.update({
         'members': FieldValue.arrayUnion([uid + '_' + userName]),
-        'groupId': groupDocRef.documentID
+        'groupId': groupDocRef.id
     });
 
-    DocumentReference userDocRef = userCollection.document(uid);
-    return await userDocRef.updateData({
-      'groups': FieldValue.arrayUnion([groupDocRef.documentID + '_' + groupName])
+    DocumentReference userDocRef = userCollection.doc(uid);
+    return await userDocRef.update({
+      'groups': FieldValue.arrayUnion([groupDocRef.id + '_' + groupName])
     });
   }
 
@@ -51,30 +51,32 @@ class DatabaseService {
   // toggling the user group join
   Future togglingGroupJoin(String groupId, String groupName, String userName) async {
 
-    DocumentReference userDocRef = userCollection.document(uid);
+    DocumentReference userDocRef = userCollection.doc(uid);
     DocumentSnapshot userDocSnapshot = await userDocRef.get();
 
-    DocumentReference groupDocRef = groupCollection.document(groupId);
+    DocumentReference groupDocRef = groupCollection.doc(groupId);
 
-    List<dynamic> groups = await userDocSnapshot.data['groups'];
+    //List<dynamic> groups = await userDocSnapshot.data['groups'];
+    Map<dynamic,dynamic>groupsMap= userDocSnapshot.data();
+    List<dynamic> groups = groupsMap['groups'];
 
     if(groups.contains(groupId + '_' + groupName)) {
       //print('hey');
-      await userDocRef.updateData({
+      await userDocRef.update({
         'groups': FieldValue.arrayRemove([groupId + '_' + groupName])
       });
 
-      await groupDocRef.updateData({
+      await groupDocRef.update({
         'members': FieldValue.arrayRemove([uid + '_' + userName])
       });
     }
     else {
       //print('nay');
-      await userDocRef.updateData({
+      await userDocRef.update({
         'groups': FieldValue.arrayUnion([groupId + '_' + groupName])
       });
 
-      await groupDocRef.updateData({
+      await groupDocRef.update({
         'members': FieldValue.arrayUnion([uid + '_' + userName])
       });
     }
@@ -84,10 +86,12 @@ class DatabaseService {
   // has user joined the group
   Future<bool> isUserJoined(String groupId, String groupName, String userName) async {
 
-    DocumentReference userDocRef = userCollection.document(uid);
+    DocumentReference userDocRef = userCollection.doc(uid);
     DocumentSnapshot userDocSnapshot = await userDocRef.get();
+    Map<dynamic,dynamic> groupMap= userDocSnapshot.data();
 
-    List<dynamic> groups = await userDocSnapshot.data['groups'];
+  //  List<dynamic> groups = await userDocSnapshot.data['groups'];
+    List<dynamic> groups = groupMap['groups'];
 
     
     if(groups.contains(groupId + '_' + groupName)) {
@@ -103,8 +107,11 @@ class DatabaseService {
 
   // get user data
   Future getUserData(String email) async {
-    QuerySnapshot snapshot = await userCollection.where('email', isEqualTo: email).getDocuments();
-    print(snapshot.documents[0].data);
+   // QuerySnapshot snapshot = await userCollection.where('email', isEqualTo: email).getDocuments();
+    QuerySnapshot snapshot = await userCollection.where('email', isEqualTo: email).get();
+    print(snapshot.docs[0].data());
+
+    //print(snapshot.documents[0].data);
     return snapshot;
   }
 
@@ -112,14 +119,14 @@ class DatabaseService {
   // get user groups
   getUserGroups() async {
     // return await Firestore.instance.collection("users").where('email', isEqualTo: email).snapshots();
-    return Firestore.instance.collection("users").document(uid).snapshots();
+    return FirebaseFirestore.instance.collection("users").doc(uid).snapshots();
   }
 
 
   // send message
   sendMessage(String groupId, chatMessageData) {
-    Firestore.instance.collection('groups').document(groupId).collection('messages').add(chatMessageData);
-    Firestore.instance.collection('groups').document(groupId).updateData({
+    FirebaseFirestore.instance.collection('groups').doc(groupId).collection('messages').add(chatMessageData);
+    FirebaseFirestore.instance.collection('groups').doc(groupId).update({
       'recentMessage': chatMessageData['message'],
       'recentMessageSender': chatMessageData['sender'],
       'recentMessageTime': chatMessageData['time'].toString(),
@@ -129,12 +136,15 @@ class DatabaseService {
 
   // get chats of a particular group
   getChats(String groupId) async {
-    return Firestore.instance.collection('groups').document(groupId).collection('messages').orderBy('time').snapshots();
+    return FirebaseFirestore.instance.collection('groups').doc(groupId).collection('messages').orderBy('time').snapshots();
   }
 
 
   // search groups
   searchByName(String groupName) {
-    return Firestore.instance.collection("groups").where('groupName', isEqualTo: groupName).getDocuments();
+    return FirebaseFirestore.instance.collection("groups").where('groupName', isEqualTo: groupName).get();
   }
+
+
+
 }

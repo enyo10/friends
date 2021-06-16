@@ -32,6 +32,10 @@
         "source": "C:\\Users\\enyo1\\.gradle\\caches\\transforms-2\\files-2.1\\cd2306d09bcf7af840551cf55ebfcf4c\\core-1.1.0\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
+        "merged": "C:\\dev\\flutterWorkplace\\friends\\build\\app\\intermediates\\res\\merged\\debug\\drawable_toast_bg.xml.flat",
+        "source": "C:\\dev\\flutterWorkplace\\friends\\build\\fluttertoast\\intermediates\\packaged_res\\debug\\drawable\\toast_bg.xml"
+    },
+    {
         "merged": "C:\\dev\\flutterWorkplace\\friends\\build\\app\\intermediates\\res\\merged\\debug\\layout_notification_template_part_time.xml.flat",
         "source": "C:\\Users\\enyo1\\.gradle\\caches\\transforms-2\\files-2.1\\cd2306d09bcf7af840551cf55ebfcf4c\\core-1.1.0\\res\\layout\\notification_template_part_time.xml"
     },
@@ -102,6 +106,10 @@
     {
         "merged": "C:\\dev\\flutterWorkplace\\friends\\build\\app\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "C:\\Users\\enyo1\\.gradle\\caches\\transforms-2\\files-2.1\\cd2306d09bcf7af840551cf55ebfcf4c\\core-1.1.0\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "C:\\dev\\flutterWorkplace\\friends\\build\\app\\intermediates\\res\\merged\\debug\\drawable_corner.xml.flat",
+        "source": "C:\\dev\\flutterWorkplace\\friends\\build\\fluttertoast\\intermediates\\packaged_res\\debug\\drawable\\corner.xml"
     },
     {
         "merged": "C:\\dev\\flutterWorkplace\\friends\\build\\app\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light.xml.flat",
@@ -198,6 +206,10 @@
     {
         "merged": "C:\\dev\\flutterWorkplace\\friends\\build\\app\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
         "source": "C:\\Users\\enyo1\\.gradle\\caches\\transforms-2\\files-2.1\\cd2306d09bcf7af840551cf55ebfcf4c\\core-1.1.0\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
+    },
+    {
+        "merged": "C:\\dev\\flutterWorkplace\\friends\\build\\app\\intermediates\\res\\merged\\debug\\layout_toast_custom.xml.flat",
+        "source": "C:\\dev\\flutterWorkplace\\friends\\build\\fluttertoast\\intermediates\\packaged_res\\debug\\layout\\toast_custom.xml"
     },
     {
         "merged": "C:\\dev\\flutterWorkplace\\friends\\build\\app\\intermediates\\res\\merged\\debug\\layout_browser_actions_context_menu_page.xml.flat",

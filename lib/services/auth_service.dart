@@ -10,16 +10,16 @@ class AuthService {
 
 
   // create user object based on FirebaseUser
-  User _userFromFirebaseUser(FirebaseUser user) {
-    return (user != null) ? User(uid: user.uid) : null;
+  ChatUser _userFromFirebaseUser(User user) {
+    return (user != null) ? ChatUser(uid: user.uid) : null;
   }
 
 
   // sign in with email and password
   Future signInWithEmailAndPassword(String email, String password) async {
     try {
-      AuthResult result = await _auth.signInWithEmailAndPassword(email: email, password: password);
-      FirebaseUser user = result.user;
+      var result = await _auth.signInWithEmailAndPassword(email: email, password: password);
+      User user = result.user;
       return _userFromFirebaseUser(user);
     } catch(e) {
       print(e.toString());
@@ -31,8 +31,8 @@ class AuthService {
   // register with email and password
   Future registerWithEmailAndPassword(String fullName, String email, String password) async {
     try {
-      AuthResult result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-      FirebaseUser user = result.user;
+      var result = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+      User user = result.user;
 
       // Create a new document for the user with uid
       await DatabaseService(uid: user.uid).updateUserData(fullName, email, password);

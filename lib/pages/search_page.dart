@@ -21,7 +21,7 @@ class _SearchPageState extends State<SearchPage> {
   bool hasUserSearched = false;
   bool _isJoined = false;
   String _userName = '';
-  FirebaseUser _user;
+  User _user;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
 
@@ -38,7 +38,7 @@ class _SearchPageState extends State<SearchPage> {
     await HelperFunctions.getUserNameSharedPreference().then((value) {
       _userName = value;
     });
-    _user = await FirebaseAuth.instance.currentUser();
+    _user =  FirebaseAuth.instance.currentUser;
   }
 
 
@@ -82,15 +82,30 @@ class _SearchPageState extends State<SearchPage> {
   Widget groupList() {
     return hasUserSearched ? ListView.builder(
       shrinkWrap: true,
-      itemCount: searchResultSnapshot.documents.length,
-      itemBuilder: (context, index) {
+      itemCount: searchResultSnapshot.docs.length, itemBuilder: (BuildContext context, int index) {
+      Map<dynamic,dynamic> value= searchResultSnapshot.docs[index].data();
+      return groupTile(
+          _userName,
+          value["groupId"],
+          value["groupName"],
+          value["admin"]
+
+      );
+
+    },
+      //documents.length,
+     /* itemBuilder: (context, index) {
+       Map<dynamic,dynamic> value= searchResultSnapshot.docs[index].data();
         return groupTile(
           _userName,
-          searchResultSnapshot.documents[index].data["groupId"],
-          searchResultSnapshot.documents[index].data["groupName"],
-          searchResultSnapshot.documents[index].data["admin"],
+          value["groupId"],
+          value["groupName"],
+          value["admin"]
+          *//*searchResultSnapshot.docs[index].data["groupId"],
+          searchResultSnapshot.docs[index].data["groupName"],
+          searchResultSnapshot.docs[index].data["admin"],*//*
         );
-      }
+      }*/
     )
     :
     Container();

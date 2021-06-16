@@ -1,7 +1,7 @@
-class User {
+class ChatUser {
   final String uid;
 
-  User({
+  ChatUser({
     this.uid
   });
 }

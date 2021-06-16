@@ -39,11 +39,14 @@ class _SignInPageState extends State<SignInPage> {
         if (result != null) {
           QuerySnapshot userInfoSnapshot =
               await DatabaseService().getUserData(email);
+          Map<dynamic, dynamic>userInfoMap = userInfoSnapshot.docs[0].data();
 
           await HelperFunctions.saveUserLoggedInSharedPreference(true);
           await HelperFunctions.saveUserEmailSharedPreference(email);
           await HelperFunctions.saveUserNameSharedPreference(
-              userInfoSnapshot.documents[0].data['fullName']);
+             // userInfoSnapshot.docs[0].data['fullName']
+            userInfoMap['fullName']
+          );
 
           print("Signed In");
           await HelperFunctions.getUserLoggedInSharedPreference().then((value) {
