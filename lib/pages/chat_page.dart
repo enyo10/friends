@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:friends/services/database_service.dart';
@@ -19,6 +20,7 @@ class ChatPage extends StatefulWidget {
 class _ChatPageState extends State<ChatPage> {
   Stream<QuerySnapshot> _chats;
   // TextEditingController messageEditingController = new TextEditingController();
+  bool isLoading =false;
 
   Widget _chatMessages() {
     return StreamBuilder(
@@ -43,41 +45,8 @@ class _ChatPageState extends State<ChatPage> {
     );
   }
 
-  /*Widget _chatMessages() {
-    return StreamBuilder(
-      stream: _chats,
-      builder: (context, snapshot) {
-        return snapshot.hasData
-            ? ListView.builder(
-                itemCount: snapshot.data.documents.length,
-                itemBuilder: (context, index) {
-                  return MessageTile(
-                    message: snapshot.data.documents[index].data["message"],
-                    sender: snapshot.data.documents[index].data["sender"],
-                    sentByMe: widget.userName ==
-                        snapshot.data.documents[index].data["sender"],
-                  );
-                })
-            : Container();
-      },
-    );
-  }*/
 
-  /* _sendMessage() {
-    if (messageEditingController.text.isNotEmpty) {
-      Map<String, dynamic> chatMessageMap = {
-        "message": messageEditingController.text,
-        "sender": widget.userName,
-        'time': DateTime.now().millisecondsSinceEpoch,
-      };
 
-      DatabaseService().sendMessage(widget.groupId, chatMessageMap);
-
-      setState(() {
-        messageEditingController.text = "";
-      });
-    }
-  }*/
 
   @override
   void initState() {
@@ -89,6 +58,7 @@ class _ChatPageState extends State<ChatPage> {
       });
     });
   }
+
 
   @override
   Widget build(BuildContext context) {
