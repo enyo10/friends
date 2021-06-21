@@ -2,12 +2,6 @@
   "configVersion": 2,
   "packages": [
     {
-      "name": "archive",
-      "rootUri": "file:///C:/Users/enyo1/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/archive-3.1.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "async",
       "rootUri": "file:///C:/Users/enyo1/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/async-2.6.1",
       "packageUri": "lib/",
@@ -171,7 +165,7 @@
     },
     {
       "name": "flutter_cache_manager",
-      "rootUri": "file:///C:/Users/enyo1/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/flutter_cache_manager-3.1.1",
+      "rootUri": "file:///C:/Users/enyo1/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/flutter_cache_manager-3.1.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -220,12 +214,6 @@
     {
       "name": "http_parser",
       "rootUri": "file:///C:/Users/enyo1/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/http_parser-4.0.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "image",
-      "rootUri": "file:///C:/Users/enyo1/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/image-3.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -316,12 +304,6 @@
     {
       "name": "pedantic",
       "rootUri": "file:///C:/Users/enyo1/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/pedantic-1.11.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "petitparser",
-      "rootUri": "file:///C:/Users/enyo1/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/petitparser-4.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -482,19 +464,13 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "xml",
-      "rootUri": "file:///C:/Users/enyo1/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/xml-5.1.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "friends",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.2"
     }
   ],
-  "generated": "2021-06-17T07:05:32.992593Z",
+  "generated": "2021-06-17T08:24:27.217757Z",
   "generator": "pub",
   "generatorVersion": "2.13.3"
 }

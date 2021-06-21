@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dash_chat/dash_chat.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:friends/helper/helper_functions.dart';
@@ -24,12 +25,15 @@ class _HomePageState extends State<HomePage> {
   String _userName = '';
   String _email = '';
   Stream _groups;
+  ChatUser chatUser;
+
 
   // initState
   @override
   void initState() {
     super.initState();
     _getUserAuthAndJoinedGroups();
+
   }
 
   // widgets
@@ -89,6 +93,12 @@ class _HomePageState extends State<HomePage> {
   // functions
   _getUserAuthAndJoinedGroups() async {
     _user = FirebaseAuth.instance.currentUser;
+    chatUser = ChatUser(
+      name: _userName
+    );
+
+    print(" name $_userName");
+
     await HelperFunctions.getUserNameSharedPreference().then((value) {
       setState(() {
         _userName = value;

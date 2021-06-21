@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:friends/dash_chat/dash_chat.dart';
 import 'package:friends/pages/chat_page.dart';
 
 
@@ -16,11 +17,18 @@ class GroupTile extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => ChatPage(
+                /*builder: (context) => ChatPage(
                       groupId: groupId,
                       userName: userName,
                       groupName: groupName,
-                    )));
+                    )));*/
+                builder: (context) => (
+                 DashChatPage(
+                   groupId: groupId,
+                   groupName: groupName,
+                   userName: userName,
+                 )
+                )));
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 5.0, vertical: 10.0),
